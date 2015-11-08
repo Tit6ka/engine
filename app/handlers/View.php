@@ -71,5 +71,7 @@ class View
         $content = self::$path;
         if(self::$attachStatus)
             include self::$attachPath.'head.php';
+        else
+            include self::$path;
     }
 }

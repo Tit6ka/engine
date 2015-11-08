@@ -1,0 +1,11 @@
+{
+  "require": {
+    "gears/router": "*",
+    "nette/mail": "^2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app"
+    }
+  }
+}

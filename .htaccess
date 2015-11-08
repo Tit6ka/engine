@@ -1,0 +1,60 @@
+# Устанавливаем кодировку по умолчанию
+AddDefaultCharset utf-8
+AddCharset utf-8 .html .css .js .xml .json .rss
+
+# Запрет передачи сессии в url
+php_flag session.use_trans_sid Off
+php_flag session.use_only_cookies On
+
+# Заголовки
+Header always append X-Frame-Options DENY
+Header always append X-Content-Type-Options nosniff
+Header always append X-XSS-Protection 1;mode=block
+Header always append X-Creator-Dvketdeat vk.com/app_data
+
+#Блокируем плохих ботов
+#SetEnvIfNoCase user-Agent ^FrontPage [NC,OR]
+#SetEnvIfNoCase user-Agent ^Java.* [NC,OR]
+#SetEnvIfNoCase user-Agent ^Microsoft.URL [NC,OR]
+#SetEnvIfNoCase user-Agent ^MSFrontPage [NC,OR]
+#SetEnvIfNoCase user-Agent ^Offline.Explorer [NC,OR]
+#SetEnvIfNoCase user-Agent ^[Ww]eb[Bb]andit [NC,OR]
+#SetEnvIfNoCase user-Agent ^Zeus [NC]
+#<limit get="" post="" page-heads="">
+#Order Allow,Deny
+#Allow from all
+#Deny from env=bad_bot
+#</limit>
+
+# Размер буфера
+php_value output_buffering 4096
+
+# Защита JSON файлов
+<Files data.json>
+ Deny from all
+</Files>
+
+# Запрещаем листинг папок и файлов
+Options -Indexes
+
+# Запрещаем запуск CGI-скриптов
+#Options -ExecCGI -Indexes
+
+#Включаем отслеживание сим-ссылок
+Options +FollowSymLinks
+
+# Роутер
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+
+#Блокируем все ссылки, содержащие <script>
+#RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+#Блокируем все скрипты, которые пытаются изменить переменные PHP Globals:
+#RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+#Блокируем все скрипты, которые пытаются изменить переменную _REQUEST:
+#RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+#Перенаправляем все подобные на страницу с ошибкой 403 — запрещено
+#RewriteRule ^(.*)$ index.php [F,L]

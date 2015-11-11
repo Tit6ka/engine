@@ -38,24 +38,30 @@ var appUnion = {
     }
 };
 $(function() {
-
-    // toastr options
+    /*
+        Toastr Options
+     */
     toastr.options = {
         "closeButton": true,
         "progressBar": true,
         "positionClass": "toast-bottom-right"
     };
 
-    // slim scroll
-    $('.aside-bar-ul').slimScroll();
+    /*
+        SlimScroll Aside
+     */
+    $('.aside-bar-ul').slimScroll().css('height', '100%');
     $('.slimScrollDiv').css('height', '100%');
-    $('.aside-bar-ul').css('height', '100%');
 
-    // fast link
+    /*
+        History write FastLink
+     */
     history.replaceState({data: location.pathname, type: 'url'}, 'page', location.pathname); //history replace
     appUnion.ajaxCachePage.push({'url': location.pathname, 'content': $('.union__content').html()}); //add hash page
 
-    // aside ul
+    /*
+        Toggle Aside Ul
+     */
     $(document).on('click', '.aside-bar ul li a', function() {
         if(!$('.aside-bar').hasClass('full'))
             return false;
@@ -69,12 +75,13 @@ $(function() {
         }
     });
 
-    // toggle aside size
+    /*
+        Change aside size
+     */
     $(document).on('click', '.toggle-aside', function() {
         var block = $('.aside-bar');
         if(block.hasClass('full')) {
-            $('[data-toggle-ul-s]').attr('style', '');
-            $('[data-toggle-ul-s]').addClass('slideLeft');
+            $('[data-toggle-ul-s]').attr('style', '').addClass('slideLeft');
             $('.slimScrollDiv').css('overflow', 'visible');
             $('.aside-bar-ul').css('overflow', 'visible');
             block.removeClass('full').addClass('small');
@@ -87,9 +94,15 @@ $(function() {
         }
     });
 
-    // bootstrap dropdown init
+    /*
+        Bootstrap function
+     */
     $('.dropdown-toggle').dropdown('toggle');
 
+
+    /*
+        Bind Click FastLink
+     */
     $(document).on('click', 'a', function() {
         var object = $(this), url = $(this).attr('href');
         if(!object.hasClass('no-turbo')) {
@@ -98,27 +111,10 @@ $(function() {
         }
     });
 
+    /*
+        Bind Back FastLink
+     */
     window.addEventListener('popstate', function(e){
         appUnion.historyNavigation(window.history.state.data, '.test');
     }, false);
-
-    // scroll Aside (disable)
-    /*$('.aside-bar').bind('touchstart', function() {
-         $(this).bind('touchmove', function(e) {
-             $('.aside-bar')[0].scrollTop = $('.aside-bar')[0].scrollTop + ($('.aside-bar')[0].scrollTop - e.originalEvent.changedTouches[0].clientY);
-             console.log($('.aside-bar')[0].scrollTop - e.originalEvent.changedTouches[0].clientY);
-             console.log(e.originalEvent.changedTouches[0].clientY);
-         });
-     });
-    */
-
-    // controll aside scroll (disable)
-    /*$(document).on('click', '.aside-bar-controller span:eq(0)', function() {
-     $('.aside-bar').css('padding-top', '0px');
-     });
-     $(document).on('click', '.aside-bar-controller span:eq(1)', function() {
-     var block = $('.aside-bar ul'), padding = parseInt(block.css('padding-top')) + (block.width()/3);
-     $('.aside-bar').css('padding-bottom', padding+'px');
-     });
-     */
 });

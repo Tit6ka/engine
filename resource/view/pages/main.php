@@ -1,11 +1,13 @@
-    <a href="/test">123</a>
-    <div class="list-group">
-        <a href="#" class="list-group-item active">
-            <h4 class="list-group-item-heading">Заголовок пункта списка группы</h4>
-            <p class="list-group-item-text">...</p>
-        </a>
-        <a href="#" class="list-group-item">
-            <h4 class="list-group-item-heading">Заголовок пункта списка группы</h4>
-            <p class="list-group-item-text">...</p>
-        </a>
+<main class="container-fluid no-padding fixed content">
+    <div class="content-main-slider">
+        <div class="content-main-slider-block">
+            <img src="/resource/assets/img/Logotip_i_tex1t.png">
+            <div class="content-main-slider-block-text col-md-4">
+                <p>Окунись в мир увлекательного RolePlay вместе с нами</p>
+            </div>
+            <div class="content-main-slider-block-text col-md-3">
+                <a href="#" class="col-md-5">Войти</a> <a href="#" class="col-md-5 col-md-offset-2">Начать</a>
+            </div>
+        </div>
     </div>
+</main>

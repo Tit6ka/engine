@@ -159,20 +159,20 @@ hr {
 }
 
 .aside-bar ul li a.active {
-    border-left: 4px solid #26BAA4;
+    border-left: 4px solid #E84C3D;
     background: #181B1F;
-    color: #26BAA4;
+    color: #E84C3D;
 }
 
 .aside-bar ul li a:hover {
-    border-left: 4px solid #26BAA4;
+    border-left: 4px solid #E84C3D;
     color: white;
 }
 
 .aside-bar ul li a.toggle-ul:after {
     font-family: FontAwesome;
     position: absolute;
-    content: "";
+    content: "?";
     font-size: 13px;
     right: 25px;
     transition: 0.3s;
@@ -220,7 +220,7 @@ hr {
 }
 
 .aside-bar ul li ul a:hover {
-    border-left: 2px solid #26BAA4;
+    border-left: 2px solid #E84C3D;
 }
 
 .aside-bar.small ul li:hover ul {
@@ -298,7 +298,7 @@ hr {
 }
 
 .content-main-slider-block h1 span {
-    color: #26BAA4;
+    color: #E84C3D;
 }
 
 .content-main-slider-block a {

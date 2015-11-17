@@ -1,6 +1,7 @@
 {
   "require": {
     "gears/router": "*",
+    "phpmailer/phpmailer": "~5.2",
     "nette/mail": "^2.3"
   },
   "autoload": {

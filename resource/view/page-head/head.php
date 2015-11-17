@@ -19,7 +19,7 @@
         <![endif]-->
     </head>
 
-    <body>
+    <body class="full">
     <header class="navbar navbar-default">
         <nav class="navbar navbar-nav-main">
             <div class="navbar-toggle-span toggle-aside"><i class="fa fa-bars"></i></div>
@@ -54,9 +54,9 @@
         </nav>
     </header>
 
-    <aside class="aside-bar full">
+    <aside class="aside-bar small">
         <ul class="aside-bar-ul">
-            <li><a href="/" class="active"><i class="fa fa-home fa-fw"></i><span class="fadeIn">Главная</span></a></li>
+            <li><a href="/"><i class="fa fa-home fa-fw"></i><span class="fadeIn">Главная</span></a></li>
             <li><a href="/forum"><i class="fa fa-commenting-o fa-fw"></i><span class="fadeIn">Форум</span></a></li>
             <li><a href="/profile"><i class="fa fa-user fa-fw"></i><span class="fadeIn">Профиль</span></a></li>
             <li>
@@ -97,10 +97,6 @@
             <li><a href="/about"><i class="fa fa-info fa-fw"></i><span class="fadeIn">О нас</span></a></li>
             <li><a href="/issue"><i class="fa fa-life-ring fa-fw"></i><span class="fadeIn">Тех. поддержка</span></a></li>
         </ul>
-        <div class="aside-bar-controller">
-            <span><i class="fa fa-hand-o-up"></i></span>
-            <span><i class="fa fa-hand-o-down"></i></span>
-        </div>
     </aside>
         <?include $content;?>
     </body>

@@ -15,7 +15,7 @@ class Mail
         self::$mail->Host = 'smtp.yandex.ru';
         self::$mail->SMTPAuth = true;
         self::$mail->Username = 'admin@union-rp.com';
-        self::$mail->Password = 'unionrp';
+        self::$mail->Password = 'password';
         self::$mail->SMTPSecure = 'ssl';
         self::$mail->Port = 465;
 
